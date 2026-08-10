@@ -28,8 +28,9 @@ export function Footer() {
                     <div className="footer__col">
                         <h4 className="footer__title">QUICK LINKS</h4>
                         <ul className="footer__links">
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#rules">Docs & Rules</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/docs">Docs</a></li>
+                            <li><a href="#rules">Rules</a></li>
                             <li><a href="#leaderboard">Leaderboard</a></li>
                             <li><a href="#showcase">Project Showcase</a></li>
                         </ul>

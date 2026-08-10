@@ -8,6 +8,8 @@ import doc1 from '../../../data/docs/01-introduction-and-ecosystem.md?raw';
 import doc2 from '../../../data/docs/02-motion-mind-devtools.md?raw';
 import doc3 from '../../../data/docs/03-submissions-and-code-reviews.md?raw';
 import doc4 from '../../../data/docs/04-rewards-badges-and-recognition.md?raw';
+import doc5 from '../../../data/docs/05-community-and-open-source.md?raw';
+import doc6 from '../../../data/docs/06-code-integrity-and-fair-play.md?raw';
 
 import { Sidebar } from './components/sidebar/sidebar';
 import { Header } from '../../components/header/header';
@@ -25,7 +27,7 @@ const marked = new Marked(
 );
 
 export function Docs() {
-  const combinedMarkdown = `${doc1}\n\n---\n\n${doc2}\n\n---\n\n${doc3}\n\n---\n\n${doc4}`;
+  const combinedMarkdown = `${doc1}\n\n---\n\n${doc2}\n\n---\n\n${doc3}\n\n---\n\n${doc4}\n\n---\n\n${doc5}\n\n---\n\n${doc6}`;
   const htmlContent = marked.parse(combinedMarkdown, { async: false }) as string;
 
   return (

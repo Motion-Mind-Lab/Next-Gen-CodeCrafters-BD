@@ -51,6 +51,25 @@ const sidebarData: SidebarGroup[] = [
             { id: "bi-monthly-rewards", label: "1. Bi-Monthly Rewards" },
             { id: "verified-badges", label: "2. Verified Badges" }
         ]
+    },
+    {
+        category: "Community & Open Source",
+        items: [
+            { id: "community-overview", label: "Community Overview" },
+            { id: "active-engagement", label: "1. Why Active Engagement Matters" },
+            { id: "open-source-guide", label: "2. Open Source Contribution Guide" }
+        ]
+    },
+    {
+        category: "Code Integrity & Fair Play",
+        items: [
+            { id: "integrity-overview", label: "Integrity Overview" },
+            { id: "understanding-integrity", label: "1. Understanding Code Integrity" },
+            { id: "plagiarism-vs-inspiration", label: "2. Plagiarism vs Inspiration" },
+            { id: "anti-spamming", label: "3. Anti-Spamming Guidelines" },
+            { id: "detection-verification", label: "4. Detection & Verification" },
+            { id: "violations-transparency", label: "5. Consequences of Violation" }
+        ]
     }
 ];
 
