@@ -5,6 +5,7 @@
   <a href="https://www.npmjs.com/package/create-levelo-app"><img alt="NPM version" src="https://img.shields.io/npm/v/create-levelo-app.svg?style=for-the-badge&labelColor=000000"></a>
   <a href="https://github.com/MotionMind2007/Levelo-Js/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-000000.svg?style=for-the-badge&labelColor=000000"></a>
 </div>
+
 ## Welcome to your Levelo Js Project
 This project was bootstrapped with [create-levelo-app](https://github.com/MotionMind2007/Levelo-Js/tree/main/packages%2Fcreate-levelo-app).
 

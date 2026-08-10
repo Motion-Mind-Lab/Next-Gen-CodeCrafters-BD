@@ -1,0 +1,88 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.cta {
+    width: 100%;
+    background: linear-gradient(135deg, #2E7CFA 0%, #0EB7A4 100%);
+    padding: 80px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.cta__container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.cta__title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+}
+
+.cta__subtitle {
+    font-size: 1.15rem;
+    opacity: 0.95;
+    margin-bottom: 32px;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.cta__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.cta__btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+}
+
+.cta__btn--primary {
+    background-color: #ffffff;
+    color: #2E7CFA;
+}
+
+.cta__btn--secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta__btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Powered By Branding Bar */
+.cta__branding {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+}
+
+.cta__branding-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    opacity: 0.9;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.cta__branding-text strong {
+    font-weight: 800;
+    color: #ffffff;
+}

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NGCBD — Next-Gen Coders BD</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            violet: {
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft': '0 4px 20px -2px rgba(0,0,0,0.06)',
+            'card': '0 8px 30px -4px rgba(0,0,0,0.08)',
+            'glow': '0 0 40px -8px rgba(99,102,241,0.35)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    
+    .glass {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    
+    .gradient-btn {
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    }
+    .gradient-btn:hover {
+      background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 40%, #eef2ff 100%);
+    }
+    
+    .cta-banner {
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #4338ca 100%);
+    }
+    
+    .stat-number {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Floating animation for hero visual */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .float { animation: float 4s ease-in-out infinite; }
+    .float-delayed { animation: float 4s ease-in-out 1.2s infinite; }
+    
+    /* Chat widget transitions */
+    .chat-panel {
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .chat-panel.hidden-panel {
+      opacity: 0;
+      transform: translateY(20px) scale(0.96);
+      pointer-events: none;
+    }
+    
+    /* Mobile menu */
+    .mobile-menu {
+      transition: max-height 0.35s ease, opacity 0.25s ease;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    .mobile-menu.open {
+      max-height: 420px;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div class="glass border-b border-white/40 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 lg:h-[72px]">
+          
+          <!-- Logo -->
+          <a href="#" class="flex items-center gap-2.5 group">
+            <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center shadow-md group-hover:shadow-glow transition-shadow">
+              <span class="text-white font-bold text-sm tracking-tight">&lt;/&gt;</span>
+            </div>
+            <div class="leading-tight">
+              <span class="block font-bold text-slate-900 text-[15px] tracking-tight">NGCBD</span>
+              <span class="block text-[10px] text-slate-500 font-medium -mt-0.5">Next-Gen Coders BD</span>
+            </div>
+          </a>
+
+          <!-- Desktop Nav Pills -->
+          <nav class="hidden lg:flex items-center gap-1 bg-slate-100/80 rounded-full px-1.5 py-1.5">
+            <a href="#home" class="flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium text-slate-700 hover:bg-white hover:text-violet-600 hover:shadow-sm transition-all">
+              <i class="fa-solid fa-house text-xs opacity-70"></i> Home
+            </a>
+            <a href="#docs" class="flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium text-slate-700 hover:bg-white hover:text-violet-600 hover:shadow-sm transition-all">
+              <i class="fa-solid fa-book text-xs opacity-70"></i> Docs & Rules
+            </a>
+            <a href="#leaderboard" class="flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium text-slate-700 hover:bg-white hover:text-violet-600 hover:shadow-sm transition-all">
+              <i class="fa-solid fa-trophy text-xs opacity-70"></i> Leaderboard
+            </a>
+            <a href="#showcase" class="flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium text-slate-700 hover:bg-white hover:text-violet-600 hover:shadow-sm transition-all">
+              <i class="fa-solid fa-code text-xs opacity-70"></i> Project Showcase
+            </a>
+            <a href="#about" class="flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium text-slate-700 hover:bg-white hover:text-violet-600 hover:shadow-sm transition-all">
+              <i class="fa-solid fa-users text-xs opacity-70"></i> About Us
+            </a>
+          </nav>
+
+          <!-- Right CTA -->
+          <div class="flex items-center gap-3">
+            <a href="#join" class="hidden sm:inline-flex items-center gap-2 gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-glow transition-all">
+              <i class="fa-solid fa-paper-plane text-xs"></i>
+              Join Community
+            </a>
+            <!-- Mobile hamburger -->
+            <button id="mobile-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+              <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu lg:hidden border-t border-slate-200/60 bg-white/95 backdrop-blur-md">
+        <div class="px-4 py-3 space-y-1">
+          <a href="#home" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-violet-50 hover:text-violet-600">
+            <i class="fa-solid fa-house w-5 text-center opacity-70"></i> Home
+          </a>
+          <a href="#docs" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-violet-50 hover:text-violet-600">
+            <i class="fa-solid fa-book w-5 text-center opacity-70"></i> Docs & Rules
+          </a>
+          <a href="#leaderboard" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-violet-50 hover:text-violet-600">
+            <i class="fa-solid fa-trophy w-5 text-center opacity-70"></i> Leaderboard
+          </a>
+          <a href="#showcase" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-violet-50 hover:text-violet-600">
+            <i class="fa-solid fa-code w-5 text-center opacity-70"></i> Project Showcase
+          </a>
+          <a href="#about" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-violet-50 hover:text-violet-600">
+            <i class="fa-solid fa-users w-5 text-center opacity-70"></i> About Us
+          </a>
+          <a href="#join" class="flex items-center justify-center gap-2 mt-2 gradient-btn text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-md">
+            <i class="fa-solid fa-paper-plane text-xs"></i> Join Community
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section id="home" class="hero-gradient pt-24 lg:pt-28 pb-16 lg:pb-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Content -->
+        <div class="max-w-xl">
+          <!-- Dual Badge -->
+          <div class="inline-flex items-center gap-0 rounded-full bg-violet-50 border border-violet-100 p-1 mb-6">
+            <span class="inline-flex items-center gap-1.5 bg-violet-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+              🔥 Not a course.
+            </span>
+            <span class="text-xs font-medium text-violet-700 px-3 py-1.5">
+              Built for active builders & researchers.
+            </span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-5">
+            Showcase Your Code.<br />
+            Get Reviewed.<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600">Elevate Your Portfolio.</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-base sm:text-lg text-slate-500 leading-relaxed mb-8 max-w-md">
+            Join Bangladesh’s most active developer community. Submit real projects, receive expert peer reviews, climb the leaderboard, and build a verified portfolio that actually gets noticed.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-wrap items-center gap-3 mb-12">
+            <a href="#submit" class="inline-flex items-center gap-2 gradient-btn text-white font-semibold px-6 py-3.5 rounded-xl shadow-md hover:shadow-glow transition-all text-[15px]">
+              Submit Your Project <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+            <a href="#docs" class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-semibold px-6 py-3.5 rounded-xl hover:border-violet-300 hover:text-violet-600 hover:bg-violet-50/50 transition-all text-[15px] shadow-sm">
+              Read Guidelines
+            </a>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold stat-number">500+</div>
+              <div class="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">Active Developers</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold stat-number">120+</div>
+              <div class="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">Projects Reviewed</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold stat-number">12</div>
+              <div class="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">Contests Hosted</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold stat-number">50+</div>
+              <div class="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">Prizes Awarded</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual -->
+        <div class="relative flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-md lg:max-w-lg">
+            <!-- Main laptop card -->
+            <div class="relative bg-white rounded-2xl shadow-card border border-slate-100 p-4 sm:p-5 float">
+              <!-- Laptop frame -->
+              <div class="bg-slate-900 rounded-xl overflow-hidden">
+                <div class="flex items-center gap-1.5 px-3 py-2 bg-slate-800">
+                  <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                  <span class="ml-2 text-[10px] text-slate-400 font-mono">portfolio.jsx</span>
+                </div>
+                <div class="p-4 font-mono text-[11px] sm:text-xs leading-relaxed text-slate-300 space-y-1">
+                  <div><span class="text-violet-400">const</span> <span class="text-sky-300">developer</span> = {</div>
+                  <div class="pl-4"><span class="text-emerald-300">name</span>: <span class="text-amber-300">"NGCBD Builder"</span>,</div>
+                  <div class="pl-4"><span class="text-emerald-300">stack</span>: [<span class="text-amber-300">"React"</span>, <span class="text-amber-300">"Node"</span>],</div>
+                  <div class="pl-4"><span class="text-emerald-300">status</span>: <span class="text-amber-300">"Shipping"</span>,</div>
+                  <div class="pl-4"><span class="text-emerald-300">reviews</span>: <span class="text-rose-300">12</span></div>
+                  <div>};</div>
+                  <div class="pt-1 text-slate-500">// Peer-reviewed & verified ✓</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating elements -->
+            <div class="absolute -top-4 -right-2 sm:-right-6 bg-white rounded-xl shadow-soft border border-slate-100 px-3 py-2.5 float-delayed">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-600">
+                  <i class="fa-solid fa-trophy text-sm"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-slate-800">Top Reviewer</div>
+                  <div class="text-[10px] text-slate-500">+120 XP this week</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -bottom-3 -left-2 sm:-left-6 bg-white rounded-xl shadow-soft border border-slate-100 px-3 py-2.5 float">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center text-violet-600 font-bold text-xs">
+                  &lt;/&gt;
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-slate-800">Code Verified</div>
+                  <div class="text-[10px] text-emerald-600 font-medium">Fair scoring ✓</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Flag + Coffee -->
+            <div class="absolute top-1/2 -right-1 sm:-right-8 -translate-y-1/2 flex flex-col gap-3">
+              <div class="w-11 h-11 rounded-full bg-white shadow-soft border border-slate-100 flex items-center justify-center text-lg float-delayed" title="Bangladesh">
+                🇧🇩
+              </div>
+              <div class="w-11 h-11 rounded-full bg-white shadow-soft border border-slate-100 flex items-center justify-center text-violet-600 font-bold text-sm float">
+                ☕
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY JOIN NGCBD ========== -->
+  <section id="about" class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+        <div class="inline-flex items-center gap-1.5 bg-violet-50 text-violet-700 text-xs font-semibold px-3.5 py-1.5 rounded-full border border-violet-100 mb-4">
+          🚀 Why Join NGCBD?
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          More Than Just a Community
+        </h2>
+        <p class="mt-3 text-slate-500 text-base sm:text-lg">
+          Built for serious builders who want real feedback, recognition, and a portfolio that stands out.
+        </p>
+      </div>
+
+      <!-- 4 Cards -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+        <!-- Card 1 -->
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-soft hover:shadow-card hover:border-violet-100 transition-all p-6">
+          <div class="w-12 h-12 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-[15px] mb-2 leading-snug">Expert Code Review & Marking</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Get structured, fair reviews from experienced peers and mentors on every submission.</p>
+          <span class="inline-flex items-center gap-1 text-[11px] font-semibold bg-sky-50 text-sky-700 px-2.5 py-1 rounded-full border border-sky-100">
+            ⭐ Fair & Transparent
+          </span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-soft hover:shadow-card hover:border-amber-100 transition-all p-6">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-[15px] mb-2 leading-snug">Bi-Monthly Rewards & Recognition</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Climb the leaderboard and earn badges, shout-outs, and real prizes every two months.</p>
+          <span class="inline-flex items-center gap-1 text-[11px] font-semibold bg-amber-50 text-amber-700 px-2.5 py-1 rounded-full border border-amber-100">
+            🎁 Badges & Prizes
+          </span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-soft hover:shadow-card hover:border-emerald-100 transition-all p-6">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-[15px] mb-2 leading-snug">Proof of Work & Portfolio Building</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Every reviewed project becomes a verified entry you can proudly show to employers.</p>
+          <span class="inline-flex items-center gap-1 text-[11px] font-semibold bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full border border-emerald-100">
+            🌱 Verified Projects
+          </span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-soft hover:shadow-card hover:border-pink-100 transition-all p-6">
+          <div class="w-12 h-12 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-[15px] mb-2 leading-snug">Pure Peer Community</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">No spam, no fluff. Just active builders helping each other level up with quality over quantity.</p>
+          <span class="inline-flex items-center gap-1 text-[11px] font-semibold bg-pink-50 text-pink-700 px-2.5 py-1 rounded-full border border-pink-100">
+            💗 Quality Over Quantity
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section id="docs" class="py-16 lg:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+        <div class="inline-flex items-center gap-1.5 bg-violet-50 text-violet-700 text-xs font-semibold px-3.5 py-1.5 rounded-full border border-violet-100 mb-4">
+          ⚡ Simple Process
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          How It Works
+        </h2>
+        <p class="mt-3 text-slate-500 text-base sm:text-lg">
+          Three clear steps from idea to recognition.
+        </p>
+      </div>
+
+      <!-- Process Steps -->
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 relative">
+        <!-- Connector lines (desktop) -->
+        <div class="hidden md:block absolute top-16 left-[16.66%] right-[16.66%] h-0.5 bg-gradient-to-r from-violet-200 via-violet-300 to-violet-200 -z-0"></div>
+
+        <!-- Step 1 -->
+        <div class="relative bg-white rounded-2xl border border-slate-100 shadow-soft p-7 text-center">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-violet-600 text-white text-sm font-bold flex items-center justify-center shadow-md">
+            1
+          </div>
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-violet-100 text-violet-600 flex items-center justify-center text-2xl mb-5 mt-2">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg mb-2">Build Your Project</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Create something real — web app, API, tool, or research prototype. Quality matters more than complexity.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative bg-white rounded-2xl border border-slate-100 shadow-soft p-7 text-center">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-violet-600 text-white text-sm font-bold flex items-center justify-center shadow-md">
+            2
+          </div>
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-2xl mb-5 mt-2">
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg mb-2">Submit Links</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Share your GitHub repo, live demo, and a short write-up. Follow the submission guidelines for best results.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative bg-white rounded-2xl border border-slate-100 shadow-soft p-7 text-center">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-violet-600 text-white text-sm font-bold flex items-center justify-center shadow-md">
+            3
+          </div>
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-5 mt-2">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg mb-2">Get Reviewed & Win</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Receive transparent scores, constructive feedback, climb the leaderboard, and unlock badges & prizes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRE-FOOTER CTA BANNER ========== -->
+  <section class="py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="cta-banner rounded-2xl lg:rounded-3xl p-8 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-glow">
+        <div class="flex items-start sm:items-center gap-4 text-center sm:text-left">
+          <div class="hidden sm:flex w-14 h-14 rounded-2xl bg-white/20 items-center justify-center text-white text-2xl shrink-0">
+            <i class="fa-solid fa-paper-plane"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Ready to Showcase Your Project?
+            </h3>
+            <p class="mt-1.5 text-violet-100 text-sm sm:text-base max-w-md">
+              Submit your work today and join hundreds of builders already leveling up together.
+            </p>
+          </div>
+        </div>
+        <a href="#submit" class="inline-flex items-center gap-2 bg-white text-violet-700 font-bold px-7 py-3.5 rounded-xl shadow-lg hover:bg-violet-50 transition-all text-[15px] shrink-0">
+          Submit Your Project <i class="fa-solid fa-arrow-right text-sm"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-slate-900 text-slate-300 pt-14 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
+        
+        <!-- Brand Column -->
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#" class="flex items-center gap-2.5 mb-4">
+            <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center shadow-md">
+              <span class="text-white font-bold text-sm">&lt;/&gt;</span>
+            </div>
+            <div class="leading-tight">
+              <span class="block font-bold text-white text-[15px]">NGCBD</span>
+              <span class="block text-[10px] text-slate-400 font-medium -mt-0.5">Next-Gen Coders BD</span>
+            </div>
+          </a>
+          <p class="text-sm text-slate-400 leading-relaxed mb-5 max-w-xs">
+            Bangladesh’s community for active builders & researchers. Showcase, get reviewed, grow.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-violet-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f text-sm"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-emerald-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="GitHub">
+              <i class="fa-brands fa-github text-sm"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-red-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="YouTube">
+              <i class="fa-brands fa-youtube text-sm"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Discord">
+              <i class="fa-brands fa-discord text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-4 tracking-wide">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#home" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] opacity-50"></i> Home</a></li>
+            <li><a href="#docs" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] opacity-50"></i> Docs & Rules</a></li>
+            <li><a href="#leaderboard" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] opacity-50"></i> Leaderboard</a></li>
+            <li><a href="#showcase" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] opacity-50"></i> Project Showcase</a></li>
+            <li><a href="#about" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] opacity-50"></i> About Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-4 tracking-wide">Resources</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-file-lines text-xs opacity-60 w-4"></i> Submission Guidelines</a></li>
+            <li><a href="#" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-star text-xs opacity-60 w-4"></i> Scoring Rubric</a></li>
+            <li><a href="#" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-calendar text-xs opacity-60 w-4"></i> Contest Calendar</a></li>
+            <li><a href="#" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-circle-question text-xs opacity-60 w-4"></i> FAQ</a></li>
+            <li><a href="#" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-envelope text-xs opacity-60 w-4"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Community -->
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-4 tracking-wide">Community</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-brands fa-discord text-xs opacity-60 w-4"></i> Discord Server</a></li>
+            <li><a href="#" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-brands fa-whatsapp text-xs opacity-60 w-4"></i> WhatsApp Group</a></li>
+            <li><a href="#" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-brands fa-github text-xs opacity-60 w-4"></i> GitHub Org</a></li>
+            <li><a href="#" class="hover:text-violet-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-users text-xs opacity-60 w-4"></i> Mentors</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <p>© 2026 Next-Gen Coders BD. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-300 transition-colors">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING AI ASSISTANT ========== -->
+  <!-- Toggle Button -->
+  <button id="chat-toggle" class="fixed bottom-6 right-6 z-[60] w-14 h-14 rounded-full gradient-btn text-white shadow-lg hover:shadow-glow flex items-center justify-center text-xl transition-all hover:scale-105 focus:outline-none focus:ring-4 focus:ring-violet-300" aria-label="Open AI Assistant">
+    <i class="fa-solid fa-robot"></i>
+  </button>
+
+  <!-- Chat Panel -->
+  <div id="chat-panel" class="chat-panel hidden-panel fixed bottom-24 right-6 z-[60] w-[340px] sm:w-[380px] max-h-[520px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-violet-600 to-indigo-600 px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white">
+          <i class="fa-solid fa-robot text-sm"></i>
+        </div>
+        <div>
+          <div class="text-white font-semibold text-sm leading-tight">NGCBD AI Bot</div>
+          <div class="flex items-center gap-1.5 text-[11px] text-violet-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Online
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center gap-1">
+        <button id="chat-minimize" class="w-8 h-8 rounded-lg hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition" aria-label="Minimize">
+          <i class="fa-solid fa-minus text-xs"></i>
+        </button>
+        <button id="chat-close" class="w-8 h-8 rounded-lg hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition" aria-label="Close">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages Area -->
+    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50 min-h-[280px]">
+      <!-- Bot welcome -->
+      <div class="flex gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center shrink-0 text-sm">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="bg-white border border-slate-100 rounded-2xl rounded-tl-md px-3.5 py-2.5 shadow-sm max-w-[85%]">
+          <p class="text-sm text-slate-700 leading-relaxed">
+            Hey builder! 👋 I’m the NGCBD AI assistant. How can I help you today?
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick action pills -->
+      <div class="flex flex-wrap gap-2 pl-10">
+        <button class="quick-reply text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:border-violet-300 hover:text-violet-600 hover:bg-violet-50 px-3 py-1.5 rounded-full transition-all shadow-sm">
+          Check Submission Rules
+        </button>
+        <button class="quick-reply text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:border-violet-300 hover:text-violet-600 hover:bg-violet-50 px-3 py-1.5 rounded-full transition-all shadow-sm">
+          How Scoring Works?
+        </button>
+        <button class="quick-reply text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:border-violet-300 hover:text-violet-600 hover:bg-violet-50 px-3 py-1.5 rounded-full transition-all shadow-sm">
+          Next Contest Deadline
+        </button>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="p-3 border-t border-slate-100 bg-white">
+      <form id="chat-form" class="flex items-center gap-2">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Ask me anything..."
+          class="flex-1 text-sm bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent placeholder:text-slate-400"
+          autocomplete="off"
+        />
+        <button type="submit" class="w-10 h-10 rounded-xl gradient-btn text-white flex items-center justify-center shrink-0 hover:shadow-md transition-all">
+          <i class="fa-solid fa-paper-plane text-sm"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Mobile nav toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      const icon = mobileToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-xmark');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        const icon = mobileToggle.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-xmark');
+      });
+    });
+
+    // Chat widget logic
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatPanel = document.getElementById('chat-panel');
+    const chatClose = document.getElementById('chat-close');
+    const chatMinimize = document.getElementById('chat-minimize');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+
+    function openChat() {
+      chatPanel.classList.remove('hidden-panel');
+    }
+    function closeChat() {
+      chatPanel.classList.add('hidden-panel');
+    }
+
+    chatToggle.addEventListener('click', () => {
+      if (chatPanel.classList.contains('hidden-panel')) {
+        openChat();
+      } else {
+        closeChat();
+      }
+    });
+    chatClose.addEventListener('click', closeChat);
+    chatMinimize.addEventListener('click', closeChat);
+
+    // Quick replies
+    document.querySelectorAll('.quick-reply').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const text = btn.textContent.trim();
+        appendUserMessage(text);
+        setTimeout(() => {
+          let reply = "Thanks for asking! ";
+          if (text.includes('Submission')) {
+            reply += "Please check the Docs & Rules section for full submission guidelines. Key points: public GitHub repo, live demo link, and a short README.";
+          } else if (text.includes('Scoring')) {
+            reply += "Scoring is based on code quality, originality, documentation, and real-world usefulness. Reviews are peer-driven and transparent.";
+          } else if (text.includes('Contest')) {
+            reply += "The next bi-monthly contest deadline is typically announced on Discord and the Leaderboard page. Stay tuned!";
+          }
+          appendBotMessage(reply);
+        }, 600);
+      });
+    });
+
+    // Chat form submit
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+      appendUserMessage(text);
+      chatInput.value = '';
+      setTimeout(() => {
+        appendBotMessage("Got it! For detailed help, check our Docs & Rules or hop into the Discord community. I'm still learning 😊");
+      }, 700);
+    });
+
+    function appendUserMessage(text) {
+      const div = document.createElement('div');
+      div.className = 'flex gap-2.5 justify-end';
+      div.innerHTML = `
+        <div class="bg-violet-600 text-white rounded-2xl rounded-tr-md px-3.5 py-2.5 shadow-sm max-w-[85%]">
+          <p class="text-sm leading-relaxed">${escapeHtml(text)}</p>
+        </div>
+      `;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function appendBotMessage(text) {
+      const div = document.createElement('div');
+      div.className = 'flex gap-2.5';
+      div.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center shrink-0 text-sm">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="bg-white border border-slate-100 rounded-2xl rounded-tl-md px-3.5 py-2.5 shadow-sm max-w-[85%]">
+          <p class="text-sm text-slate-700 leading-relaxed">${escapeHtml(text)}</p>
+        </div>
+      `;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>

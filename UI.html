@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Next-Gen Coders BD | Showcase. Review. Elevate.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .chat-window {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: bottom right;
+    }
+    .chat-window.hidden-chat {
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+      pointer-events: none;
+    }
+    .chat-window.visible-chat {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
+            <i class="fa-solid fa-code text-white text-sm"></i>
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="font-bold text-lg text-slate-900 tracking-tight">NGCBD</span>
+            <span class="text-[10px] font-medium text-slate-500 -mt-0.5">Next-Gen Coders BD</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#home" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Home</a>
+          <a href="#docs" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Docs & Rules</a>
+          <a href="#leaderboard" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Leaderboard</a>
+          <a href="#showcase" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Project Showcase</a>
+          <a href="#about" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">About Us</a>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex items-center gap-3">
+          <a href="#join" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm hover:shadow-md transition-all">
+            <i class="fa-solid fa-users text-xs"></i>
+            Join Community
+          </a>
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white">
+      <div class="px-4 py-3 space-y-1">
+        <a href="#home" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-700">Home</a>
+        <a href="#docs" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-700">Docs & Rules</a>
+        <a href="#leaderboard" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-700">Leaderboard</a>
+        <a href="#showcase" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-700">Project Showcase</a>
+        <a href="#about" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-700">About Us</a>
+        <a href="#join" class="mt-2 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-indigo-600 rounded-lg">
+          <i class="fa-solid fa-users text-xs"></i>
+          Join Community
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-violet-50"></div>
+    <div class="absolute top-20 right-0 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-violet-200/20 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28">
+      <div class="max-w-3xl mx-auto text-center">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-100/80 border border-indigo-200/60 text-indigo-700 text-xs font-semibold mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+          Not a course. Built for active builders & researchers.
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+          Showcase Your Code.<br class="hidden sm:block" />
+          <span class="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">Get Reviewed.</span><br class="hidden sm:block" />
+          Elevate Your Portfolio.
+        </h1>
+
+        <p class="mt-6 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          A dedicated community for passionate Bangladeshi developers to present research-level projects, receive expert code reviews, and compete in bi-monthly leagues.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all">
+            <i class="fa-solid fa-rocket"></i>
+            Submit Your Project
+          </a>
+          <a href="#docs" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl shadow-sm hover:shadow transition-all">
+            <i class="fa-solid fa-book-open text-indigo-500"></i>
+            Read Guidelines
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Why Join NGCBD?</h2>
+        <p class="mt-4 text-lg text-slate-600">A focused platform designed exclusively for serious builders who want real feedback and recognition.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="group relative bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-indigo-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-code-branch text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Expert Code Review</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Detailed scoring against a transparent rubric. Get actionable feedback from experienced reviewers on architecture, quality, and innovation.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group relative bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-violet-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-trophy text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Bi-Monthly Rewards</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Compete in leagues every two months. Earn badges, recognition, and prizes for outstanding projects that push the boundaries.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group relative bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-indigo-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-briefcase text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Proof of Work</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Build a verified portfolio of reviewed projects. Showcase real contributions to clients, recruiters, and open-source communities.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="group relative bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-violet-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-users-gear text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Pure Peer Community</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">No beginner spam. No course upsells. Just active builders and researchers exchanging high-signal discussions and collaboration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="docs" class="py-20 sm:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">How It Works</h2>
+        <p class="mt-4 text-lg text-slate-600">Three clear steps from idea to recognition.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <!-- Connector line (desktop) -->
+        <div class="hidden md:block absolute top-16 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-indigo-200 via-violet-200 to-indigo-200"></div>
+
+        <!-- Step 1 -->
+        <div class="relative text-center">
+          <div class="mx-auto w-14 h-14 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xl font-bold shadow-lg shadow-indigo-500/30 relative z-10">
+            1
+          </div>
+          <h3 class="mt-6 text-xl font-semibold text-slate-900">Build Something Unique</h3>
+          <p class="mt-3 text-slate-600 leading-relaxed max-w-xs mx-auto">
+            Create an advanced, research-level or production-grade project that demonstrates real engineering depth.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative text-center">
+          <div class="mx-auto w-14 h-14 rounded-full bg-violet-600 text-white flex items-center justify-center text-xl font-bold shadow-lg shadow-violet-500/30 relative z-10">
+            2
+          </div>
+          <h3 class="mt-6 text-xl font-semibold text-slate-900">Submit Repo & Demo</h3>
+          <p class="mt-3 text-slate-600 leading-relaxed max-w-xs mx-auto">
+            Share your GitHub repository and live demo link. Include a short write-up of the problem, approach, and tech stack.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative text-center">
+          <div class="mx-auto w-14 h-14 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xl font-bold shadow-lg shadow-indigo-500/30 relative z-10">
+            3
+          </div>
+          <h3 class="mt-6 text-xl font-semibold text-slate-900">Get Scored & Recognized</h3>
+          <p class="mt-3 text-slate-600 leading-relaxed max-w-xs mx-auto">
+            Receive detailed feedback, a transparent score, and compete for bi-monthly badges and prizes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section id="submit" class="py-16 bg-gradient-to-r from-indigo-600 to-violet-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white">Ready to put your work in front of peers who care?</h2>
+      <p class="mt-3 text-indigo-100 text-lg">Submit your next project and start building a portfolio that actually matters.</p>
+      <a href="#join" class="mt-8 inline-flex items-center gap-2.5 px-7 py-3.5 text-base font-semibold text-indigo-700 bg-white hover:bg-indigo-50 rounded-xl shadow-lg transition-all">
+        <i class="fa-solid fa-paper-plane"></i>
+        Submit Project Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="about" class="bg-slate-900 text-slate-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <!-- Brand -->
+        <div class="md:col-span-1">
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+              <i class="fa-solid fa-code text-white text-sm"></i>
+            </div>
+            <span class="font-bold text-lg text-white">NGCBD</span>
+          </div>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            A community platform for Bangladeshi developers who build, share, and grow through rigorous peer review.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#home" class="text-sm hover:text-indigo-400 transition-colors">Home</a></li>
+            <li><a href="#docs" class="text-sm hover:text-indigo-400 transition-colors">Docs & Rules</a></li>
+            <li><a href="#leaderboard" class="text-sm hover:text-indigo-400 transition-colors">Leaderboard</a></li>
+            <li><a href="#showcase" class="text-sm hover:text-indigo-400 transition-colors">Project Showcase</a></li>
+          </ul>
+        </div>
+
+        <!-- Community -->
+        <div id="join">
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Community</h4>
+          <ul class="space-y-2.5">
+            <li>
+              <a href="#" class="inline-flex items-center gap-2 text-sm hover:text-indigo-400 transition-colors">
+                <i class="fa-brands fa-facebook text-base"></i> Facebook Group
+              </a>
+            </li>
+            <li>
+              <a href="#" class="inline-flex items-center gap-2 text-sm hover:text-indigo-400 transition-colors">
+                <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp Community
+              </a>
+            </li>
+            <li>
+              <a href="#" class="inline-flex items-center gap-2 text-sm hover:text-indigo-400 transition-colors">
+                <i class="fa-brands fa-github text-base"></i> GitHub Org
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Get Involved</h4>
+          <p class="text-sm text-slate-400 mb-4">Have questions or want to become a reviewer?</p>
+          <a href="#" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors">
+            <i class="fa-solid fa-envelope"></i>
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-slate-500">© 2026 Next-Gen Coders BD. All rights reserved.</p>
+        <p class="text-xs text-slate-600">Built for builders, by builders.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating AI Chat Button -->
+  <button id="chat-toggle" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-xl shadow-indigo-500/30 hover:shadow-2xl hover:scale-105 transition-all flex items-center justify-center">
+    <i id="chat-icon" class="fa-solid fa-robot text-xl"></i>
+    <i id="close-icon" class="fa-solid fa-xmark text-xl hidden"></i>
+  </button>
+
+  <!-- Chat Window -->
+  <div id="chat-window" class="chat-window hidden-chat fixed bottom-24 right-6 z-50 w-[340px] sm:w-[380px] max-h-[480px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+          <i class="fa-solid fa-robot text-white text-sm"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-white">NGCBD AI Bot</h3>
+          <p class="text-[11px] text-indigo-200">Online • Instant answers</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50">
+      <div class="flex gap-2.5">
+        <div class="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+          <i class="fa-solid fa-robot text-indigo-600 text-xs"></i>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-md px-3.5 py-2.5 text-sm text-slate-700 shadow-sm max-w-[85%]">
+          Hi! I'm the NGCBD assistant. How can I help you today?
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="px-3 py-2.5 border-t border-slate-100 bg-white flex flex-wrap gap-2">
+      <button class="quick-btn px-3 py-1.5 text-xs font-medium text-indigo-700 bg-indigo-50 hover:bg-indigo-100 rounded-full transition-colors">
+        Check Submission Rules
+      </button>
+      <button class="quick-btn px-3 py-1.5 text-xs font-medium text-indigo-700 bg-indigo-50 hover:bg-indigo-100 rounded-full transition-colors">
+        How Scoring Works?
+      </button>
+      <button class="quick-btn px-3 py-1.5 text-xs font-medium text-indigo-700 bg-indigo-50 hover:bg-indigo-100 rounded-full transition-colors">
+        Next Contest Deadline
+      </button>
+    </div>
+
+    <!-- Input -->
+    <div class="p-3 border-t border-slate-200 bg-white">
+      <form id="chat-form" class="flex items-center gap-2">
+        <input
+          id="chat-input"
+          type="text"
+          placeholder="Ask anything about NGCBD..."
+          class="flex-1 px-3.5 py-2.5 text-sm bg-slate-100 border-0 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-slate-400"
+          autocomplete="off"
+        />
+        <button type="submit" class="w-10 h-10 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center transition-colors flex-shrink-0">
+          <i class="fa-solid fa-paper-plane text-sm"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Chat widget
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatWindow = document.getElementById('chat-window');
+    const chatIcon = document.getElementById('chat-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    let isChatOpen = false;
+
+    chatToggle.addEventListener('click', () => {
+      isChatOpen = !isChatOpen;
+      if (isChatOpen) {
+        chatWindow.classList.remove('hidden-chat');
+        chatWindow.classList.add('visible-chat');
+        chatIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        chatInput.focus();
+      } else {
+        chatWindow.classList.remove('visible-chat');
+        chatWindow.classList.add('hidden-chat');
+        chatIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    });
+
+    // Quick reply responses
+    const responses = {
+      'Check Submission Rules': 'Projects must include a public GitHub repo, a live demo (or clear run instructions), and a short README covering problem, approach, and tech stack. Only advanced / research-level work is accepted.',
+      'How Scoring Works?': 'Each project is scored on: Architecture (25%), Code Quality (25%), Innovation (20%), Documentation (15%), and Demo Completeness (15%). Reviewers leave detailed comments for every criterion.',
+      'Next Contest Deadline': 'The next bi-monthly league ends on 31 August 2026. Submit before then to be eligible for badges and prizes. Good luck!'
+    };
+
+    function addMessage(text, isUser = false) {
+      const wrapper = document.createElement('div');
+      wrapper.className = `flex gap-2.5 ${isUser ? 'flex-row-reverse' : ''}`;
+
+      const avatar = document.createElement('div');
+      avatar.className = `w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ${isUser ? 'bg-indigo-600' : 'bg-indigo-100'}`;
+      avatar.innerHTML = isUser
+        ? '<i class="fa-solid fa-user text-white text-xs"></i>'
+        : '<i class="fa-solid fa-robot text-indigo-600 text-xs"></i>';
+
+      const bubble = document.createElement('div');
+      bubble.className = `rounded-2xl px-3.5 py-2.5 text-sm shadow-sm max-w-[85%] ${
+        isUser
+          ? 'bg-indigo-600 text-white rounded-tr-md'
+          : 'bg-white border border-slate-200 text-slate-700 rounded-tl-md'
+      }`;
+      bubble.textContent = text;
+
+      wrapper.appendChild(avatar);
+      wrapper.appendChild(bubble);
+      chatMessages.appendChild(wrapper);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Quick buttons
+    document.querySelectorAll('.quick-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const question = btn.textContent.trim();
+        addMessage(question, true);
+        setTimeout(() => {
+          addMessage(responses[question] || 'Thanks for your question! Please check the Docs section or ask in the community for more details.');
+        }, 600);
+      });
+    });
+
+    // Form submit
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+      addMessage(text, true);
+      chatInput.value = '';
+      setTimeout(() => {
+        addMessage('Thanks for reaching out! For detailed answers, please explore the Docs & Rules section or join our community channels.');
+      }, 700);
+    });
+  </script>
+</body>
+</html>
