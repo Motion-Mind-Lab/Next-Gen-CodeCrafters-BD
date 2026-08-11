@@ -6,7 +6,7 @@ export function CTASection() {
             <div className="cta__container">
                 <h2 className="cta__title">Ready to Prove Your Engineering Potential?</h2>
                 <p className="cta__subtitle">
-                    Join Next-Gen Coders BD today, build real projects, receive code reviews, and earn your verified developer badge.
+                    Join Next-Gen CodeCrafters BD today, build real projects, receive code reviews, and earn your verified developer badge.
                 </p>
                 <div className="cta__actions">
                     <button className="cta__btn cta__btn--primary">Join Community Now</button>

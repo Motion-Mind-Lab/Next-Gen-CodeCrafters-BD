@@ -179,6 +179,9 @@
 }
 
 @media (max-width: 768px) {
+  .header {
+    width: 100%;
+  }
   .links {
     display: none;
   }

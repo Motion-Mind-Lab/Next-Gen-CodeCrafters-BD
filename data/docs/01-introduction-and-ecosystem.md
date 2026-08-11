@@ -1,6 +1,6 @@
 <h1 id="intro">Introduction & Ecosystem</h1>
 
-Welcome to the core documentation of **Next-Gen Coders BD (NGCBD)**, an ecosystem initiative built to elevate Bangladeshi developers through genuine proof-of-work, peer reviews, and open-source innovation.
+Welcome to the core documentation of **Next-Gen CodeCrafters BD (NGCBD)**, an ecosystem initiative built to elevate Bangladeshi developers through genuine proof-of-work, peer reviews, and open-source innovation.
 
 ---
 
@@ -22,7 +22,7 @@ As the parent brand behind **NGCBD**, Motion Mind sponsors community rewards, pr
   <img src="/logoT.svg" alt="Motion Mind Logo" width="180" />
 </p>
 
-**NGCBD (Next-Gen Coders BD)** is a dedicated showcase platform, review network, and bi-monthly league operating under the Motion Mind brand umbrella. 
+**NGCBD (Next-Gen CodeCrafters BD)** is a dedicated showcase platform, review network, and bi-monthly league operating under the Motion Mind brand umbrella. 
 
 Unlike traditional programming groups or tutorial hubs, NGCBD is engineered exclusively for active builders, researchers, and core-level developers in Bangladesh. It serves as a transparent stage where developers can:
 * Present advanced, production-grade, or research-driven projects.

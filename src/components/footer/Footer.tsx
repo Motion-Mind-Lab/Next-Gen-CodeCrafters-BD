@@ -30,7 +30,7 @@ export function Footer() {
                         <ul className="footer__links">
                             <li><a href="/">Home</a></li>
                             <li><a href="/docs">Docs</a></li>
-                            <li><a href="#rules">Rules</a></li>
+                            <li><a href="/rules">Rules</a></li>
                             <li><a href="#leaderboard">Leaderboard</a></li>
                             <li><a href="#showcase">Project Showcase</a></li>
                         </ul>
@@ -73,7 +73,7 @@ export function Footer() {
                 {/* Bottom Bar */}
                 <div className="footer__bottom">
                     <p className="footer__copyright">
-                        © <span style={{ paddingLeft: '5px', paddingRight: '5px' }}>{(new Date()).getFullYear()}</span> Next-Gen Coders BD. Powered by <strong onClick={() => window.open('https://lab.motionmind.me', '_blank')} style={{ paddingLeft: '5px', cursor: 'pointer' }}>Motion Mind</strong>. All rights reserved.
+                        © <span style={{ paddingLeft: '5px', paddingRight: '5px' }}>{(new Date()).getFullYear()}</span> Next-Gen CodeCrafters BD. Powered by <strong onClick={() => window.open('https://lab.motionmind.me', '_blank')} style={{ paddingLeft: '5px', cursor: 'pointer' }}>Motion Mind</strong>. All rights reserved.
                     </p>
                     <span className="footer__tagline">
                         Built for builders, by builders.

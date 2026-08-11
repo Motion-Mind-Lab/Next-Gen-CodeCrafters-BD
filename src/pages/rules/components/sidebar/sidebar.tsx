@@ -13,7 +13,7 @@ export function Sidebar() {
   return (
     <div>
       <button 
-        className="mobile-docs-toggle" 
+        className="mobile-rules-toggle" 
         onClick={() => setIsOpen(!isOpen())}
       >
         <span>On This Page Navigation</span>
@@ -27,7 +27,7 @@ export function Sidebar() {
         />
       )}
 
-      <aside className={`docs-sidebar ${isOpen() ? 'open' : ''}`}>
+      <aside className={`rules-sidebar ${isOpen() ? 'open' : ''}`}>
         {sidebarData.map((group, groupIdx) => (
           <div key={groupIdx} className="sidebar-group">
             <span className="sidebar-category">{group.category}</span>

@@ -17,13 +17,13 @@ export function Header() {
                     <img class="logo" src={Logo} alt="Logo" />
                     <div class="logo-text">
                         <h2>NGCBD</h2>
-                        <p>Next-Gen Coders BD</p>
+                        <p>Next-Gen CodeCrafters BD</p>
                     </div>
                 </div>
 
                 <div class="links">
                     <a class="header-link" href='/docs'>Docs</a>
-                    <a class="header-link">Rules</a>
+                    <a class="header-link" href='/rules'>Rules</a>
                     <a class="header-link">Leaderboard</a>
                     <a class="header-link">Project Showcase</a>
                     <a class="header-link">About Us</a>
@@ -44,7 +44,7 @@ export function Header() {
             <div class={`mobile-menu ${isMenuOpen() ? 'open' : ''}`}>
                 <div class="mobile-links">
                     <a class="mobile-link" href='/docs' onClick={() => setIsMenuOpen(false)}>Docs</a>
-                    <a class="mobile-link" onClick={() => setIsMenuOpen(false)}>Rules</a>
+                    <a class="mobile-link" href='/rules' onClick={() => setIsMenuOpen(false)}>Rules</a>
                     <a class="mobile-link" onClick={() => setIsMenuOpen(false)}>Leaderboard</a>
                     <a class="mobile-link" onClick={() => setIsMenuOpen(false)}>Project Showcase</a>
                     <a class="mobile-link" onClick={() => setIsMenuOpen(false)}>About Us</a>
