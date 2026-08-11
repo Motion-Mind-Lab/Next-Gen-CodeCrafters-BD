@@ -64,7 +64,7 @@ export function About() {
               </div>
               <div class="founder-info">
                 <span class="founder-tag">Co-Founding Partner</span>
-                <h4 class="founder-name">Farhan Islam Taeeb</h4>
+                <h4 class="founder-name">MD Farhan Islam Taeeb</h4>
                 <p class="founder-role">Co-Founder & Core Architect, NGCBD</p>
               </div>
             </div>
