@@ -31,8 +31,8 @@ export function Footer() {
                             <li><a href="/">Home</a></li>
                             <li><a href="/docs">Docs</a></li>
                             <li><a href="/rules">Rules</a></li>
-                            <li><a href="#leaderboard">Leaderboard</a></li>
-                            <li><a href="#showcase">Project Showcase</a></li>
+                            <li><a href="/leaderboard">Leaderboard</a></li>
+                            <li><a href="/showcase">Project Showcase</a></li>
                         </ul>
                     </div>
 

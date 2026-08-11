@@ -24,8 +24,8 @@ export function Header() {
                 <div class="links">
                     <a class="header-link" href='/docs'>Docs</a>
                     <a class="header-link" href='/rules'>Rules</a>
-                    <a class="header-link">Leaderboard</a>
-                    <a class="header-link">Project Showcase</a>
+                    <a class="header-link" href='/leaderboard'>Leaderboard</a>
+                    <a class="header-link" href='/showcase'>Project Showcase</a>
                     <a class="header-link">About Us</a>
                 </div>
 
@@ -45,8 +45,8 @@ export function Header() {
                 <div class="mobile-links">
                     <a class="mobile-link" href='/docs' onClick={() => setIsMenuOpen(false)}>Docs</a>
                     <a class="mobile-link" href='/rules' onClick={() => setIsMenuOpen(false)}>Rules</a>
-                    <a class="mobile-link" onClick={() => setIsMenuOpen(false)}>Leaderboard</a>
-                    <a class="mobile-link" onClick={() => setIsMenuOpen(false)}>Project Showcase</a>
+                    <a class="mobile-link" href='/leaderboard' onClick={() => setIsMenuOpen(false)}>Leaderboard</a>
+                    <a class="mobile-link" href='/showcase' onClick={() => setIsMenuOpen(false)}>Project Showcase</a>
                     <a class="mobile-link" onClick={() => setIsMenuOpen(false)}>About Us</a>
                     <div class="join-button mobile-join">
                         <Users />
