@@ -7,7 +7,7 @@ import './footer.css';
 
 export function Footer() {
 
-    const whaUrl = 'https://wa.me/880801804187223?text=Hi%20NGCBD%20Team!%20I%20want%20to%20get%20an%20invite%20for%20the%20developer%20community.%20Here%20is%20my%20GitHub/Portfolio%20link:%20';
+    const whaUrl = 'https://wa.me/8801804187223?text=Hi%20NGCBD%20Team!%20I%20want%20to%20get%20an%20invite%20for%20the%20developer%20community.%20Here%20is%20my%20GitHub/Portfolio%20link:%20';
     
     return (
         <footer className="footer">
@@ -49,7 +49,7 @@ export function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="const whaUrl = 'https://wa.me/880801804187223?text=Hi%20NGCBD%20Team!%20I%20want%20to%20get%20an%20invite%20for%20the%20developer%20community.%20Here%20is%20my%20GitHub/Portfolio%20link:%20';" target="_blank" rel="noreferrer">
+                                <a href="const whaUrl = 'https://wa.me/8801804187223?text=Hi%20NGCBD%20Team!%20I%20want%20to%20get%20an%20invite%20for%20the%20developer%20community.%20Here%20is%20my%20GitHub/Portfolio%20link:%20';" target="_blank" rel="noreferrer">
                                     <img src={whatsapp} class="svg-icon" /> WhatsApp Community
                                 </a>
                             </li>

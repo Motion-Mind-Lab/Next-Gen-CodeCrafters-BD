@@ -3,8 +3,8 @@ import { MessageSquare, CircleCheck, Send, Users, ExternalLink, ArrowLeft } from
 
 export function HowToSubmit() {
 
-    const adminWhaUrl = "https://wa.me/880801804187223?text=Hi!%20I%20want%20to%20know%20if%20project%20submission%20is%20currently%20open.";
-    const groupWhaUrl = "https://wa.me/880801804187223?text=Hi%20NGCBD%20Team!%20I%20want%20to%20get%20an%20invite%20for%20the%20developer%20community.";
+    const adminWhaUrl = "https://wa.me/8801804187223?text=Hi!%20I%20want%20to%20know%20if%20project%20submission%20is%20currently%20open.";
+    const groupWhaUrl = "https://wa.me/8801804187223?text=Hi%20NGCBD%20Team!%20I%20want%20to%20get%20an%20invite%20for%20the%20developer%20community.";
 
     return (
         <div class="submit-container">
