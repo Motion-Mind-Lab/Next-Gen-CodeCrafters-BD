@@ -1,0 +1,328 @@
+/* Container & Glowing Background Base */
+.about-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 80px 24px 120px 24px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #0f172a;
+  position: relative;
+  /* Home Page Glowing Gradient Base */
+  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.12) 0%, rgba(238, 242, 255, 0.4) 35%, transparent 70%);
+}
+
+/* Background Glowing Blurs */
+.about-container::before {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, rgba(79, 70, 229, 0.08) 50%, transparent 80%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure content stays above background glow */
+.about-hero,
+.about-card {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero Section */
+.about-hero {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #6366f1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  border: 1px solid rgba(199, 210, 254, 0.6);
+  margin-bottom: 24px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.08);
+}
+
+.about-badge-icon {
+  color: #ef4444;
+}
+
+.about-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+  margin: 0 0 20px 0;
+  line-height: 1.1;
+}
+
+.about-subtitle {
+  font-size: 1.15rem;
+  color: #475569;
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-weight: 450;
+}
+
+/* Glowing Glass Cards */
+.about-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 24px;
+  padding: 48px;
+  margin-bottom: 36px;
+  box-shadow: 0 20px 50px -12px rgba(99, 102, 241, 0.07),
+              0 4px 12px rgba(15, 23, 42, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-card:hover {
+  border-color: rgba(165, 180, 252, 0.8);
+  box-shadow: 0 25px 60px -15px rgba(99, 102, 241, 0.12),
+              0 6px 16px rgba(15, 23, 42, 0.04);
+}
+
+/* Story / Origin Section */
+.story-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.story-header h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+}
+
+.accent-icon {
+  color: #6366f1;
+}
+
+.story-content p {
+  font-size: 1.05rem;
+  color: #334155;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.story-content p:last-child {
+  margin-bottom: 0;
+}
+
+.story-content strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.story-content em {
+  font-style: normal;
+  color: #4f46e5;
+  background: #eef2ff;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid #c7d2fe;
+  font-weight: 600;
+}
+
+/* Headings */
+.section-heading {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.03em;
+}
+
+.section-sub {
+  font-size: 0.975rem;
+  color: #64748b;
+  margin: 0 0 32px 0;
+}
+
+/* Leadership Grid */
+.founders-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.founder-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(248, 250, 252, 0.8);
+  border: 1px solid #e2e8f0;
+  padding: 28px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.founder-card:hover {
+  background: #ffffff;
+  border-color: #818cf8;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px -10px rgba(99, 102, 241, 0.15);
+}
+
+.founder-avatar {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  border: 1px solid #c7d2fe;
+  color: #4f46e5;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 16px -4px rgba(99, 102, 241, 0.15);
+}
+
+.founder-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #6366f1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.founder-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.founder-role {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Developer Benefits Grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #e2e8f0;
+  padding: 28px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  background: #ffffff;
+  border-color: #c7d2fe;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -8px rgba(99, 102, 241, 0.1);
+}
+
+.b-icon {
+  color: #6366f1;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.benefit-item h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+.benefit-item p {
+  font-size: 0.925rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Philosophy Card (Hero Style Theme) */
+.philosophy-card {
+  background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+  border: 1px solid #6366f1;
+  color: #ffffff;
+  box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.35);
+}
+
+.philosophy-content h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.03em;
+}
+
+.philosophy-content p {
+  font-size: 1.05rem;
+  color: #e0e7ff;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.philosophy-goal {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 22px 26px;
+  border-radius: 16px;
+  border-left: 4px solid #a5b4fc;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(12px);
+}
+
+.philosophy-goal strong {
+  color: #a5b4fc;
+}
+.githubIcon {
+    width: 24px;
+    height: 24px;
+}
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .founders-grid,
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-title {
+    font-size: 2.4rem;
+  }
+
+  .about-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+}

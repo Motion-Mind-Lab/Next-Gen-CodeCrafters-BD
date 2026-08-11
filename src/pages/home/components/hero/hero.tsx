@@ -25,12 +25,12 @@ export function Hero() {
                 </div>
                 
                 <div class="hero-actions">
-                    <button class="btn-primary">
+                    <a href='/submit' class="btn-primary">
                         How to Submit
-                    </button>
-                    <button class="btn-secondary">
+                    </a>
+                    <a href='/docs' class="btn-secondary">
                         Read Docs
-                    </button>
+                    </a>
                 </div>
 
                 <div className="hero-powered">

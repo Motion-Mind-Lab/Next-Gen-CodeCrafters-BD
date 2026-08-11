@@ -7,7 +7,13 @@ import { Perks } from './components/perks/perks';
 import { CTASection } from './components/cta/CTASection';
 import { Footer } from '../../components/footer/Footer';
 
+import { setActiveTab } from '../../components/header/header';
+import { mount } from 'levelojs';
+
 export function Home() {
+    mount(() => {
+        setActiveTab("home");
+    })
     return (
         <div class="home">
             <Header />

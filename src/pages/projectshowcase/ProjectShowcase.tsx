@@ -1,9 +1,18 @@
 import { Gift, Sparkles, ExternalLink, Code, LayoutGrid } from 'kivex-levelo';
 import './project-showcase.css';
 
+import { Header, setActiveTab } from '../../components/header/header';
+import { mount } from 'levelojs';
+import { Footer } from '../../components/footer/Footer';
+
 export function ProjectShowcase() {
+  mount(() => {
+    setActiveTab('showcase');
+  })
   return (
-    <div className="ps-container">
+    <div>
+      <Header />
+      <div className="ps-container">
       {/* Hero Header */}
       <div className="ps-header">
         <div className="ps-badge">
@@ -58,5 +67,8 @@ export function ProjectShowcase() {
         </div>
       </div>
     </div>
+    <Footer />
+    </div>
+    
   );
 }

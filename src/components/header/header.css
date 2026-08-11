@@ -144,10 +144,11 @@
 }
 
 .mobile-menu.open {
-  max-height: 300px;
+  max-height: 400px;
   opacity: 1;
   transform: translateY(0);
   padding: 1rem;
+  overflow-y: auto;
 }
 
 .mobile-links {
@@ -176,6 +177,29 @@
   justify-content: center;
   margin-top: 0.5rem;
   width: 100%;
+}
+.header-link.active {
+  color: #2563EB !important;
+  font-weight: 600;
+  position: relative;
+}
+.header-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #2563EB;
+  border-radius: 2px;
+}
+.mobile-link.active {
+  color: #2563EB !important;
+  font-weight: 700;
+  background-color: #EFF6FF;
+  border-left: 3px solid #2563EB;
+  padding-left: 12px;
+  border-radius: 0 6px 6px 0;
 }
 
 @media (max-width: 768px) {

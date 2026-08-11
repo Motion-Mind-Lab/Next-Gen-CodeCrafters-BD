@@ -6,6 +6,8 @@ import Logo from '/logoT.svg';
 import './footer.css';
 
 export function Footer() {
+
+    const whaUrl = 'https://wa.me/880801804187223?text=Hi%20NGCBD%20Team!%20I%20want%20to%20get%20an%20invite%20for%20the%20developer%20community.%20Here%20is%20my%20GitHub/Portfolio%20link:%20';
     
     return (
         <footer className="footer">
@@ -33,6 +35,7 @@ export function Footer() {
                             <li><a href="/rules">Rules</a></li>
                             <li><a href="/leaderboard">Leaderboard</a></li>
                             <li><a href="/showcase">Project Showcase</a></li>
+                            <li><a href="/about">About Us</a></li>
                         </ul>
                     </div>
 
@@ -41,17 +44,17 @@ export function Footer() {
                         <h4 className="footer__title">COMMUNITY</h4>
                         <ul className="footer__links">
                             <li>
-                                <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                                <a href="https://facebook.com/groups/916416137573001/" target="_blank" rel="noreferrer">
                                     <img src={facebook} class="svg-icon" /> Facebook Group
                                 </a>
                             </li>
                             <li>
-                                <a href="https://whatsapp.com" target="_blank" rel="noreferrer">
+                                <a href="const whaUrl = 'https://wa.me/880801804187223?text=Hi%20NGCBD%20Team!%20I%20want%20to%20get%20an%20invite%20for%20the%20developer%20community.%20Here%20is%20my%20GitHub/Portfolio%20link:%20';" target="_blank" rel="noreferrer">
                                     <img src={whatsapp} class="svg-icon" /> WhatsApp Community
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com" target="_blank" rel="noreferrer">
+                                <a href="https://github.com/Motion-Mind-Lab/Next-Gen-CodeCrafters-BD" target="_blank" rel="noreferrer">
                                     <img src={github} class="svg-icon" /> GitHub Org
                                 </a>
                             </li>
@@ -64,8 +67,8 @@ export function Footer() {
                         <p className="footer__text">
                             Have questions or want to become a reviewer?
                         </p>
-                        <a href="mailto:contact@ngcbd.org" className="footer__contact-btn">
-                            <Mail size={16} /> Contact Us
+                        <a href="https://github.com/Motion-Mind-Lab/Next-Gen-CodeCrafters-BD/issues" target='_blank' className="footer__contact-btn">
+                            <img src={github} class="svg-icon" /> Ask on GitHub
                         </a>
                     </div>
                 </div>

@@ -15,6 +15,9 @@ import { Sidebar } from './components/sidebar/sidebar';
 import { Header } from '../../components/header/header';
 import { Footer } from '../../components/footer/Footer';
 
+import { setActiveTab } from '../../components/header/header';
+import { mount } from 'levelojs';
+
 const marked = new Marked(
   markedHighlight({
     emptyLangClass: 'hljs',
@@ -29,6 +32,10 @@ const marked = new Marked(
 export function Docs() {
   const combinedMarkdown = `${doc1}\n\n---\n\n${doc2}\n\n---\n\n${doc3}\n\n---\n\n${doc4}\n\n---\n\n${doc5}\n\n---\n\n${doc6}`;
   const htmlContent = marked.parse(combinedMarkdown, { async: false }) as string;
+
+  mount(() => {
+    setActiveTab('docs');
+  })
 
   return (
     <div>

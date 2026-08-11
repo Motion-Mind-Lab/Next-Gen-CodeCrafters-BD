@@ -1,9 +1,20 @@
-import { Crown, Gem, ArrowLeft, ShieldCheck, Gift } from 'kivex-levelo';
+import { Crown, Gem, ShieldCheck, Gift } from 'kivex-levelo';
 import './leaderboard.css';
+import { Header } from '../../components/header/header';
+import { Footer } from '../../components/footer/Footer';
+
+import { setActiveTab } from '../../components/header/header';
+import { mount } from 'levelojs';
 
 export function LeaderBoard() {
+  mount(() => {
+    setActiveTab('leaderboard');
+  })
   return (
-    <div className="lb-container">
+    <div>
+      <Header />
+      <div className="lb-container">
+      
       {/* Hero Header */}
       <div className="lb-header">
         <div className="lb-badge">
@@ -56,6 +67,10 @@ export function LeaderBoard() {
           </a>
         </div>
       </div>
+      
     </div>
+    <Footer />
+    </div>
+    
   );
 };
