@@ -2,10 +2,14 @@ import { Gift, Sparkles, ExternalLink, Code, LayoutGrid } from 'kivex-levelo';
 import './project-showcase.css';
 
 import { Header, setActiveTab } from '../../components/header/header';
-import { mount } from 'levelojs';
+import { head, mount } from 'levelojs';
 import { Footer } from '../../components/footer/Footer';
 
 export function ProjectShowcase() {
+  head({
+    title: 'Show Case — NGCBD'
+  })
+
   mount(() => {
     setActiveTab('showcase');
   })

@@ -15,7 +15,7 @@ import rule3 from '../../../data/rules/03-community-and-github-engagement.md?raw
 import rule4 from '../../../data/rules/04-fair-play-and-eligibility.md?raw';
 
 import { setActiveTab } from '../../components/header/header';
-import { mount } from 'levelojs';
+import { head, mount } from 'levelojs';
 
 const marked = new Marked(
   markedHighlight({
@@ -31,6 +31,10 @@ const marked = new Marked(
 export function Rules() {
     const combinedMarkdown = `${rule1}\n\n---\n\n${rule2}\n\n---\n\n${rule3}\n\n---\n\n${rule4}`;
     const htmlContent = marked.parse(combinedMarkdown, { async: false }) as string;
+
+    head({
+        title: 'Community Rules & Guidelines — NGCBD'
+    })
 
     mount(() => {
         setActiveTab('rules');

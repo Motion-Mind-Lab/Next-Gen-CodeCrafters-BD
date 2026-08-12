@@ -4,9 +4,13 @@ import { Header } from '../../components/header/header';
 import { Footer } from '../../components/footer/Footer';
 
 import { setActiveTab } from '../../components/header/header';
-import { mount } from 'levelojs';
+import { head, mount } from 'levelojs';
 
 export function LeaderBoard() {
+  head({
+    title: "Leader Board — NGCBD"
+  })
+
   mount(() => {
     setActiveTab('leaderboard');
   })

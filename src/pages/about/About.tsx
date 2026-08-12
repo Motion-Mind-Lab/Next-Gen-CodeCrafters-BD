@@ -1,4 +1,4 @@
-import { effect } from 'levelojs';
+import { head, mount } from 'levelojs';
 import { Sparkles, Code, Gift, Zap, Globe } from 'kivex-levelo';
 import { Header, setActiveTab } from '../../components/header/header';
 import { Footer } from '../../components/footer/Footer';
@@ -6,7 +6,11 @@ import githubDarkIcon from '../../components/svg-icons/githubDark.svg';
 import './about.css';
 
 export function About() {
-  effect(() => {
+  head({
+    title: 'About Us — NGCBD',
+  })
+
+  mount(() => {
     setActiveTab('about');
   });
 
