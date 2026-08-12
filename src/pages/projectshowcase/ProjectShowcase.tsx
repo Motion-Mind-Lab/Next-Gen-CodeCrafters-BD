@@ -64,7 +64,7 @@ export function ProjectShowcase() {
           <a href="/rules#rubric-table" className="ps-btn-primary">
             View Evaluation Rubric
           </a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="ps-btn-secondary">
+          <a href="/submit" className="ps-btn-secondary">
             <ExternalLink size={16} />
             Submit Your Project
           </a>
