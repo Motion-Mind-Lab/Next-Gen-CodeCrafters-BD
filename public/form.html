@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join NGCBD — Next-Gen CodeCrafters BD</title>
+  <link rel="icon" type="image/svg+xml" href="./logoT.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -41,10 +42,8 @@
   <div class="w-full max-w-lg">
     <!-- Header -->
     <div class="text-center mb-8">
-      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 shadow-lg shadow-cyan-200/50 mb-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl shadow-lg shadow-cyan-200/50 mb-4">
+        <img src="./logoT.svg" alt="NGCBD LOGO">
       </div>
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-800 tracking-tight">
         NGCBD
@@ -148,16 +147,31 @@
           <p class="error-msg hidden text-xs text-red-500 mt-1.5" data-for="experience">Please select your experience level</p>
         </div>
 
-        <!-- Portfolio (Optional) -->
+        <!-- Portfolio Link (Optional) -->
         <div>
           <label for="portfolio" class="block text-sm font-medium text-slate-700 mb-1.5">
-            Portfolio / Best Project Link
+            Portfolio Website Link
             <span class="text-slate-400 font-normal">(Optional)</span>
           </label>
           <input
             type="url"
             id="portfolio"
             name="portfolio"
+            placeholder="https://yourportfolio.com"
+            class="form-input w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 placeholder-slate-400 text-sm transition focus:border-cyan-400 focus:bg-white"
+          />
+        </div>
+
+        <!-- Best Project Link (Optional) -->
+        <div>
+          <label for="bestProject" class="block text-sm font-medium text-slate-700 mb-1.5">
+            Best Project Link
+            <span class="text-slate-400 font-normal">(Optional)</span>
+          </label>
+          <input
+            type="url"
+            id="bestProject"
+            name="bestProject"
             placeholder="https://your-project.com"
             class="form-input w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 placeholder-slate-400 text-sm transition focus:border-cyan-400 focus:bg-white"
           />
@@ -239,6 +253,7 @@
       const techStack = document.getElementById('techStack').value.trim();
       const experience = document.getElementById('experience').value;
       const portfolio = document.getElementById('portfolio').value.trim();
+      const bestProject = document.getElementById('bestProject').value.trim();
       const reason = document.getElementById('reason').value.trim();
 
       let isValid = true;
@@ -279,7 +294,11 @@
       message += `*Experience Level:*\n${experience}\n\n`;
 
       if (portfolio) {
-        message += `*Portfolio / Best Project:*\n${portfolio}\n\n`;
+        message += `*Portfolio Link:*\n${portfolio}\n\n`;
+      }
+
+      if (bestProject) {
+        message += `*Best Project Link:*\n${bestProject}\n\n`;
       }
 
       if (reason) {
