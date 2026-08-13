@@ -3,7 +3,7 @@ import Logo from '/logoT.svg';
 import { Users, Menu, X, UserPlus } from 'kivex-levelo';
 import { state } from 'levelojs';
 
-export type ActiveTab = 'home' | 'docs' | 'rules' | 'leaderboard' | 'showcase' | 'about';
+export type ActiveTab = 'home' | 'docs' | 'rules' | 'leaderboard' | 'showcase' | 'members' | 'about';
 
 export const [activeTab, setActiveTab] = state<ActiveTab>("home");
 
@@ -32,6 +32,7 @@ export function Header() {
                     <a class={`header-link ${activeTab() === 'rules' ? 'active' : ''}`} href='/rules'>Rules</a>
                     <a class={`header-link ${activeTab() === 'leaderboard' ? 'active' : ''}`} href='/leaderboard'>Leaderboard</a>
                     <a class={`header-link ${activeTab() === 'showcase' ? 'active' : ''}`} href='/showcase'>Project Showcase</a>
+                    <a class={`header-link ${activeTab() === 'members' ? 'active' : ''}`} href="/members">Members</a>
                     <a class={`header-link ${activeTab() === 'about' ? 'active' : ''}`} href='/about'>About Us</a>
                 </div>
 
@@ -54,6 +55,7 @@ export function Header() {
                     <a class={`mobile-link ${activeTab() === 'rules' ? 'active' : ''}`} href='/rules' onClick={() => setIsMenuOpen(false)}>Rules</a>
                     <a class={`mobile-link ${activeTab() === 'leaderboard' ? 'active' : ''}`} href='/leaderboard' onClick={() => setIsMenuOpen(false)}>Leaderboard</a>
                     <a class={`mobile-link ${activeTab() === 'showcase' ? 'active' : ''}`} href='/showcase' onClick={() => setIsMenuOpen(false)}>Project Showcase</a>
+                    <a class={`mobile-link ${activeTab() === 'members' ? 'active' : ''}`} href='/members' onClick={() => setIsMenuOpen(false)}>Members</a>
                     <a class={`mobile-link ${activeTab() === 'about' ? 'active' : ''}`} href='/about' onClick={() => setIsMenuOpen(false)}>About Us</a>
                     <a class="join-button mobile-join" href={whaUrl} target='_blank' rel="noopener noreferrer">
                         <UserPlus />

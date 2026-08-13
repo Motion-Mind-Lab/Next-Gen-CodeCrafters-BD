@@ -10,6 +10,7 @@ import { LeaderBoard } from './pages/leaderboard/LeaderBoard';
 import { ProjectShowcase } from './pages/projectshowcase/ProjectShowcase';
 import { About } from './pages/about/About';
 import { HowToSubmit } from './pages/submit/HowToSubmit';
+import { Members } from './pages/members/Members';
 
 function Mind() {
   return (
@@ -21,6 +22,7 @@ function Mind() {
       <Page path='/showcase' component={ProjectShowcase} />
       <Page path='/about' component={About} />
       <Page path='/submit' component={HowToSubmit} />
+      <Page path='/members' component={Members} />
     </Pages>
   )
 }
